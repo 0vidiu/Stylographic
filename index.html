@@ -8,7 +8,7 @@
         <meta http-equiv="Accept-CH" content="DPR,Width,Viewport-Width">
         
         <!-- Icon Names -->
-        <meta name="apple-mobile-web-app-title" content="Grunt Flow">
+        <meta name="apple-mobile-web-app-title" content="Styleguide">
         <meta name="application-name" content="Evergreen">
         <!-- End Icon Names -->
         
@@ -17,7 +17,7 @@
         <meta name="msapplication-TileImage" content="assets/images/touch-icon-transparent.png">
         <!-- End Windows Phone Tile -->
         
-        <title>Grunt Flow</title>
+        <title>Styleguide</title>
         
         <!-- Touch Icons -->
         <link rel="mask-icon" href="/assets/images/pin-icon.svg" color="#000">
@@ -32,6 +32,15 @@
             <!-- inject:head:css //-->
             <!-- endinject //-->
         </style>
+        
+        <!-- Temporary baseline-grid pattern -->
+        <!--<link rel="stylesheet" href="http://basehold.it/24">-->
+        <!-- End Temporary baseline-grid pattern -->
+        
+        <!-- Google Webfonts -->
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,800,300" rel="stylesheet" type="text/css">
+        <!-- End Google Webfonts -->
         
         <script>
         function loadCSS(e,n,o,t){"use strict";var d=window.document.createElement("link"),i=n||window.document.getElementsByTagName("script")[0],r=window.document.styleSheets;return d.rel="stylesheet",d.href=e,d.media="only x",t&&(d.onload=t),i.parentNode.insertBefore(d,i),d.onloadcssdefined=function(e){for(var n,o=0;o<r.length;o++)r[o].href&&r[o].href===d.href&&(n=!0);n?e():setTimeout(function(){d.onloadcssdefined(e)})},d.onloadcssdefined(function(){d.media=o||"all"}),d}
@@ -53,23 +62,76 @@
 
         <main class="main">
             <!-- Hero: Slider -->
+            <!--
             <article class="hero">
                 <div class="container">
                     <h1>Hello world</h1>
                 </div>
             </article>
+            -->
             <!-- End Hero -->
+            
             <!-- Section -->
-            <article class="section">
-                <h2>Example</h2>
+            <article class="section -padding">
+                <h1 class="heading -page-title">Styleguide<span class="separator"></span><span class="subtitle">Typography.</span></h1>
+                <div class="columns">
+                    <div class="column__third -padding-right-one-col">
+                        <h6 class="heading -subtitle">Open Sans</h6>
+                        <h2 class="heading -weight-normal h-word-break-all h-no-padding-top">abcdefghijklmnopqrstuvxyz</h2>
+                        <h6 class="heading h-no-margin-bottom">Body copy</h6>
+                        <p class="text">Try-hard vinyl tumblr before they sold out master cleanse bespoke. Mustache heirloom hoodie disrupt fingerstache cornhole, raw denim small batch.</p>
+                    </div>
+                    <div class="column__third -padding-right-one-col -border-left">
+                        <h6 class="heading -subtitle">Libre Baskerville</h6>
+                        <h2 class="heading -serif -weight-normal h-word-break-all h-no-padding-top">abcdefghijklmnopqrstuvxyz</h2>
+                        <h6 class="heading h-no-margin-bottom">Body copy</h6>
+                        <p class="text -weight-bold">Try-hard vinyl tumblr before they sold out master cleanse bespoke. Mustache heirloom hoodie disrupt fingerstache cornhole, raw denim small.</p>
+                    </div>
+                    <div class="column__third -padding-right-one-col -border-left">
+                        <h6 class="heading -subtitle">Helvetica</h6>
+                        <h2 class="heading -weight-normal -style-italic h-word-break-all h-no-padding-top">abcdefghijklmnopqrstuvxyz</h2>
+                        <h6 class="heading h-no-margin-bottom">Body copy</h6>
+                        <p class="text -style-italic">Try-hard vinyl tumblr before they sold out master cleanse bespoke. Mustache heirloom hoodie disrupt fingerstache cornhole, raw denim small batch.</p>
+                    </div>
+                </div>
+                <!--
+                <div class="content">
+                    <h1>H1 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h1>
+                    <h2>H2 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h2>
+                    <h3>H3 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h3>
+                    <h4>H4 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h4>
+                    <h5>H5 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h5>
+                    <h6>H6 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h6>
+                </div>
+                -->
+                <div class="content">
+                    <!--
+                    <h1>H1 &#8212; Heading.</h1>
+                    <h2>H2 &#8212; Heading.</h2>
+                    <h3>H3 &#8212; Heading.</h3>
+                    <h4>H4 &#8212; Heading.</h4>
+                    <h5>H5 &#8212; Heading.</h5>
+                    <h6>H6 &#8212; Heading.</h6>
+                    <p class="text">Locavore godard tattooed, before <a href="#" title="Anchor title">they sold out pickled</a> sartorial 3 wolf moon helvetica XOXO. Four dollar toast bitters pitchfork tofu biodiesel selfies you probably haven't heard of them deep v. Migas helvetica PBR&B, authentic 3 wolf moon typewriter street art marfa synth. Sustainable umami franzen, tumblr knausgaard whatever chia. Tousled paleo cred gochujang. Beard 90's wayfarers kogi XOXO man bun paleo, narwhal literally gastropub intelligentsia whatever. Everyday carry craft beer vegan williamsburg mixtape, hella iPhone YOLO flexitarian stumptown chartreuse raw denim direct trade cliche listicle.</p>
+                    <ul class="list">
+                        <li class="list__item">This is the <strong>first</strong> list item;</li>
+                        <li class="list__item">This is the <strong>second</strong> list item;</li>
+                        <li class="list__item">This is the <strong>third</strong> list item;</li>
+                        <li class="list__item">This is the <strong>fourth</strong> list item;</li>
+                        <li class="list__item">This is the <strong>fifth</strong> list item;</li>
+                    </ul>
+                    <p class="text">Try-hard vinyl tumblr before they sold out master cleanse bespoke. Mustache heirloom hoodie disrupt fingerstache cornhole, raw denim small batch pabst. Drinking vinegar salvia you probably haven't heard of them, pop-up polaroid celiac everyday carry waistcoat chillwave blue bottle. Intelligentsia shoreditch hashtag swag 3 wolf moon deep v. Sriracha ethical pour-over kitsch listicle tacos. Art party affogato post-ironic flannel, beard viral offal microdosing freegan. Schlitz letterpress slow-carb kickstarter.</p>
+                    -->
+                </div> <!-- End content -->
             </article>
             <!-- End Section -->
+            
         </main>
 
         <!-- Footer Section: Contact -->
         <footer class="section footer">
             <div class="container">
-
+                
             </div>
         </footer>
         <!-- End Footer Section -->

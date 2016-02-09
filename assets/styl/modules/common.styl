@@ -11,18 +11,35 @@
 * {
     box-sizing: border-box;
 }
-// HTML
-html {
-    font-size: $base-font-size-px;
 
+p {
+    @extends .text;
 }
-// Body
-body {
-    // Defaults
-    min-width: rem(320);
-    background-color: $color-background;
-    color: $default-color;
-    font-family: $sans-font-family;
-    font-size: $default-text-size;
-    line-height: $default-line-height;
+
+ul {
+    @extends .list;
+}
+
+h1 {
+    @extends $h1;
+}
+
+h2 {
+    @extends $h2;
+}
+
+h3 {
+    @extends $h3;
+}
+
+h4 {
+    @extends $h4;
+}
+
+h5 {
+    @extends $h5;
+}
+
+h6 {
+    @extends $h6;
 }

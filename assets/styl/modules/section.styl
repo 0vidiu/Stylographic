@@ -8,36 +8,15 @@
  */
 .section {
     position: relative;
-    padding: rem(10);
-
-    &__header {
-
+    center(rem($width-container));
+    
+    &.-padding {
+        padding: ($baseline-unit * 3) 0;
     }
     
-    &__wrapper {
-    
-    }
-    
-    &__content {
-    
-    }
-    
-    &__footer {
-
-    }
-
-// Headings
-    h1 {
-        //@extends $h1;
-    }
-    h2 {
-        //@extends $h2;
-    }
-    h3 {
-        //@extends $h3;
-    }
-    h4 {
-        //@extends $h4;
+    .content {
+        float: left;
+        width: unit($width-container/1.618, "px"); // temporary Golden Section calculation
     }
 
 // Links

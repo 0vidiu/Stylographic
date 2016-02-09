@@ -263,10 +263,10 @@ gulp.task('css:process', function() {
         .pipe(plugins.plumber({errorHandler: onError}))
         .pipe(plugins.sourcemaps.init({loadMaps: true}))
         .pipe(plugins.groupConcat({'main.css': '**/*.css'}))
-        .pipe(plugins.uncss({
-            html: ['*.html'],
-            ignore: [/fonts-loaded/, /ie/, /ie8/, /ios/, /h-no-pointer-events/, /is-.*/, /has-.*/, /ui-.*/, /mfp-.*/, /select2-.*/, /slick-.*/, /-x-.*/, /-minus-.*/, /-plus-.*/, /-arrow-.*/ ]
-        }))
+        //.pipe(plugins.uncss({
+        //    html: ['*.html'],
+        //    ignore: [/fonts-loaded/, /ie/, /ie8/, /ios/, /h-no-pointer-events/, /is-.*/, /has-.*/, /ui-.*/, /mfp-.*/, /select2-.*/, /slick-.*/, ///-x-.*/, /-minus-.*/, /-plus-.*/, /-arrow-.*/ ]
+        //}))
         .pipe(plugins.sourcemaps.write('.'))
         .pipe(gulp.dest(paths.css.dest));
 });

@@ -4,22 +4,26 @@
 //
 
 /**
+ * Container widths
+ */
+
+$width-container = 1200px; // maximum width of non-fullwidth content
+$width-columns-gutter = 30; // gutter width
+
+/**
  * Fontfaces
  */
 
-$sans-font-family                   = "FontName", Helvetica, Arial, sans-serif;
-$serif-font-family                  = "FontName", Georgia, "Times New Roman", Times, serif;
+$sans-font-family                   = "Open Sans", Helvetica, Arial, sans-serif;
+$serif-font-family                  = "Libre Baskerville", Georgia, "Times New Roman", Times, serif;
 $cursive-font-family                = "FontName", cursive, sans-serif;
 $default-font-family                = $sans-font-family;
 
-/**
- * Typographic scale
- */
 
 // Default text size
 $default-text-size                  = $text-size-normal;
 $default-line-height                = 1.5;
-$default-color                      = $color-black;
+
 
 
 /**
@@ -27,7 +31,7 @@ $default-color                      = $color-black;
  */
 
 $base-font-size                     = 100%;
-$base-font-size-px                  = 16px;
+$base-font-size-px                  = $body-copy-size;
 
 
 /**
@@ -37,9 +41,11 @@ $base-font-size-px                  = 16px;
 $url-images                         = "../images";
 $url-fonts                          = "../fonts";
 
+
 /**
  * Breakpoints
  */
+
 $xlarge                             = 1249px;
 $desktop                            = 1119px;
 $large                              = 1049px;

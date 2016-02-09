@@ -2,3 +2,35 @@
 // Name  : Vertical rhythm
 // Author: Graffino (http=//www.graffino.com)
 //
+
+// Default text font-size
+$body-copy-size    = 16px;
+// Body copy line-height (multiplier)
+$base-leading      = 1.5;
+// Baseline grid unit: "font-size" * "line-height"
+$baseline-unit     = unit(round($body-copy-size * $base-leading), "px");
+// Typographic scale ratio (e.g. "3/4")
+$scale-ratio       = (3/4);
+
+
+/**
+ * Headings
+ */
+// Calculating font-size for the headings using the (above) defined scale-ratio
+$font-size-h1      = unit($body-copy-size * ($scale-ratio * 6), "px");
+$line-height-h1    = unit($font-size-h1 * 1.1, "px");
+
+$font-size-h2      = unit($body-copy-size * ($scale-ratio * 5), "px");
+$line-height-h2    = unit($font-size-h2 * 1.15, "px");
+
+$font-size-h3      = unit($body-copy-size * ($scale-ratio * 4), "px");
+$line-height-h3    = unit($font-size-h3 * 1.2, "px");
+
+$font-size-h4      = unit($body-copy-size * ($scale-ratio * 3), "px");
+$line-height-h4    = unit($font-size-h4 * 1.25, "px");
+
+$font-size-h5      = unit($body-copy-size * ($scale-ratio * 2), "px");
+$line-height-h5    = unit($font-size-h5 * 1.3, "px");
+
+$font-size-h6      = unit($body-copy-size, "px");
+$line-height-h6    = unit($baseline-unit, "px");
