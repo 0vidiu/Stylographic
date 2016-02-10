@@ -7,28 +7,32 @@
  * Standard button
  */
 .button {
+    transition-custom($property = background-color);
+    
+    display: inline-block;
+    margin: 0 0 rem($unit);
     border: 0;
+    padding: 0 rem($unit * 2);
+    background-color: $color-primary;
+    color: white;
+    font-weight: bold;
+    line-height: rem($unit * 2);
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    outline: 0;
+    
+    &:hover {
+        background-color: darken($color-primary, 20%);
+    }
     
     .icon {
         // Enable click trough icons
         pointer-events: none;
     }
-
-    &.-color-white {
-        background-color: white;
-    }
     
-    &.-type-hollow {
-        
-    }
-
-    &.-type-solid {
-        
-    }
     
-    &.-type-text {
-        background-color: transparent;
-    }
+    
 }
 .button--default {
     @extends .button;

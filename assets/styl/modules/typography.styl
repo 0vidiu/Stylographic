@@ -16,7 +16,7 @@ body {
     color: $default-color;
     font-family: $sans-font-family;
     font-size: $body-copy-size;
-    line-height: $baseline-unit;
+    line-height: $unit;
 }
 
 /**
@@ -26,38 +26,40 @@ $h1, $h2, $h3, $h4, $h5, $h6 {
     display: block;
 }
 $h1 {
-    margin: 0 0 rem($baseline-unit * 2);
-    padding: rem($baseline-unit * 2) 0 0;
-    font-size: rem($font-size-h1);
-    line-height: rem($line-height-h1);
+    margin: 0 0 rem($unit);
+    padding: rem($rhythm-diff-headings[5]) 0 0;
+    font-size: rem($font-size-headings[5]);
+    line-height: rem($line-height-headings[5]);
 }
 $h2 {
-    margin: 0 0 rem($baseline-unit);
-    padding: rem($baseline-unit) 0 0;
-    font-size: rem($font-size-h2);
-    line-height: rem($line-height-h2);
+    margin: 0 0 rem($unit);
+    padding: rem($rhythm-diff-headings[4]) 0 0;
+    font-size: rem($font-size-headings[4]);
+    line-height: rem($line-height-headings[4]);
 }
 $h3 {
-    margin: 0 0 rem($baseline-unit);
-    padding: rem($baseline-unit) 0 0;
-    font-size: rem($font-size-h3);
-    line-height: rem($line-height-h3);
+    margin: 0 0 rem($unit);
+    padding: rem($rhythm-diff-headings[3]) 0 0;
+    font-size: rem($font-size-headings[3]);
+    line-height: rem($line-height-headings[3]);
 }
 $h4 {
-    margin: 0 0 rem($baseline-unit);
-    padding: rem($baseline-unit) 0 0;
-    font-size: rem($font-size-h4);
-    line-height: rem($line-height-h4);
+    margin: 0 0 rem($unit);
+    padding: rem($rhythm-diff-headings[2]) 0 0;
+    font-size: rem($font-size-headings[2]);
+    line-height: rem($line-height-headings[2]);
 }
 $h5 {
-    margin: 0 0 rem($baseline-unit);
-    font-size: rem($font-size-h5);
-    line-height: rem($line-height-h5);
+    margin: 0 0 rem($unit);
+    padding: rem($rhythm-diff-headings[1]) 0 0;
+    font-size: rem($font-size-headings[1]);
+    line-height: rem($line-height-headings[1]);
 }
 $h6 {
-    margin: 0 0 rem($baseline-unit);
-    font-size: rem($font-size-h6);
-    line-height: rem($line-height-h6);
+    margin: 0 0 rem($unit);
+    padding: rem($rhythm-diff-headings[0]) 0 0;
+    font-size: rem($font-size-headings[0]);
+    line-height: rem($line-height-headings[0]);
 }
 
 /**
@@ -119,25 +121,27 @@ $h6 {
         font-family: $serif-font-family;
     }
     
+    &.-cursive {
+        font-family: $cursive-font-family;
+    }
+    
     /**
      * Custom heading styles
      */
     
     &.-page-title {
         position: relative;
-        margin-bottom: rem($baseline-unit * 4);
+        margin-bottom: rem($unit * 4);
         color: $color-primary;
         
         // left decoration border
         &:before {
             content: "";
             position: absolute;
-            top: 50%;
             right: 105%;
             display: block;
             width: 100%;
-            height: rem($baseline-unit * 3);
-            margin-top: rem(-8);
+            height: rem($unit * 3);
             background-color: $color-primary;
         }
         
@@ -145,13 +149,14 @@ $h6 {
             position: relative;
             display: inline-block;
             width: rem(1);
-            height: rem($baseline-unit * 2);
-            margin: 0 rem($baseline-unit);
+            height: rem($unit * 2);
+            margin: 0 rem($unit);
             background-color: $color-border;
         }
         
         .subtitle {
             @extends $h3;
+            
             display: inline-block;
             margin: 0;
             padding: 0;
@@ -160,6 +165,21 @@ $h6 {
             font-style: italic;
             font-weight: 100;
         }
+    }
+    
+    &.-font-demo {
+        padding: 0;
+        word-break: break-all;
+        font-weight: normal;
+        line-height: rem(72);
+    }
+    
+    &.-subsection {
+        margin-bottom: rem($unit * 2);
+        color: $color-text-gray;
+        font-family: $serif-font-family;
+        font-style: italic;
+        font-weight: normal;
     }
     
     &.-subtitle {
@@ -175,7 +195,7 @@ $h6 {
  * Text
  */
 .text {
-    margin: 0 0 $baseline-unit;
+    margin: 0 0 $unit;
     color: $color-text;
 
     &.-color-white {
@@ -205,11 +225,24 @@ $h6 {
     &.-no-margin-top {
         margin-top: 0;
     }
+    
+    /**
+     * Fontfaces
+     */
+    
+    &.-serif {
+        font-family: $serif-font-family;
+    }
+    
+    &.-cursive {
+        font-family: $cursive-font-family;
+    }
+    
 }
 
 /**
  * Lists
  */
 .list {
-    margin: 0 0 $baseline-unit;
+    margin: 0 0 $unit;
 }

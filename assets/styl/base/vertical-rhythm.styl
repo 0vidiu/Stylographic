@@ -4,33 +4,59 @@
 //
 
 // Default text font-size
-$body-copy-size    = 16px;
+$body-copy-size        = 16px;
 // Body copy line-height (multiplier)
-$base-leading      = 1.5;
+$base-leading          = 1.5;
 // Baseline grid unit: "font-size" * "line-height"
-$baseline-unit     = unit(round($body-copy-size * $base-leading), "px");
-// Typographic scale ratio (e.g. "3/4")
-$scale-ratio       = (3/4);
+$unit                  = unit(round($body-copy-size * $base-leading), "px");
+// Typographic scale ratio (e.g. "4/3" or "6/5")
+$scale-ratio           = (4/3);
+// Line-height increment for headings (h1 to h6)
+$scale-leading-ratio   = 0.35;
+// Array for storing the headings' line-height
+$line-height-headings  = ();
+// Array for storing the headings' font-size
+$font-size-headings    = ();
+// Vertical rhythm adjustment array
+// Stores difference value from line-height to multiple of $unit
+$rhythm-diff-headings  = ();
+// Vertical rhythm tolerance value for adjusting line-height (value in px)
+$rhythm-diff-tolerance = 4;
 
+// temporary console container
+$log                   = "Output something here...";
 
-/**
- * Headings
- */
-// Calculating font-size for the headings using the (above) defined scale-ratio
-$font-size-h1      = unit($body-copy-size * ($scale-ratio * 6), "px");
-$line-height-h1    = unit($font-size-h1 * 1.1, "px");
+// temporary storing values for iteration
+// -- also I'm lowering the body-copy-size with one step, hence the divide
+$temp-font-size        = $body-copy-size / $scale-ratio;
+$temp-line-height      = 1;
 
-$font-size-h2      = unit($body-copy-size * ($scale-ratio * 5), "px");
-$line-height-h2    = unit($font-size-h2 * 1.15, "px");
+// going through each heading size (1 to 6) and calculating:
+// - font-size and line-height
+// - rhythm difference (if any it's added as a padding)
+for $n in (0..5) { // @stylint ignore
+    // calculating the font-size in the $n iteration (h1 to h6)
+    $temp-font-size = round($temp-font-size * $scale-ratio);
+    
+    // storing the value in the array
+    $font-size-headings[$n] = $temp-font-size;
+    
+    // calculating the line-height for the current $n heading
+    $line-height-headings[$n] = round($font-size-headings[$n] * ($temp-line-height + $scale-leading-ratio));
+    
+    // checking if line-height is (near or) multiple of $unit
+    // if it's within the tolerance zone assign the line-height to the new value
+    if (abs(near($line-height-headings[$n]) - $line-height-headings[$n]) < $rhythm-diff-tolerance) {
+        $line-height-headings[$n] = near($line-height-headings[$n]);
+        
+        // setting the rhythm difference value to 0
+        // we already have a multiple of the $unit as the line-height
+        $rhythm-diff-headings[$n] = 0;
+    } else {
+        // else adjust padding-bottom to fit grid
+        $rhythm-diff-headings[$n] = abs(near($line-height-headings[$n]) - $line-height-headings[$n]);
+    }
+}
 
-$font-size-h3      = unit($body-copy-size * ($scale-ratio * 4), "px");
-$line-height-h3    = unit($font-size-h3 * 1.2, "px");
-
-$font-size-h4      = unit($body-copy-size * ($scale-ratio * 3), "px");
-$line-height-h4    = unit($font-size-h4 * 1.25, "px");
-
-$font-size-h5      = unit($body-copy-size * ($scale-ratio * 2), "px");
-$line-height-h5    = unit($font-size-h5 * 1.3, "px");
-
-$font-size-h6      = unit($body-copy-size, "px");
-$line-height-h6    = unit($baseline-unit, "px");
+// calculating the smaller text sizes
+$font-size-small = $body-copy-size / $scale-ratio;

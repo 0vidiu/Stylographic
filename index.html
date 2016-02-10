@@ -40,6 +40,7 @@
         <!-- Google Webfonts -->
         <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,800,300" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet" type="text/css">
         <!-- End Google Webfonts -->
         
         <script>
@@ -74,38 +75,89 @@
             <!-- Section -->
             <article class="section -padding">
                 <h1 class="heading -page-title">Styleguide<span class="separator"></span><span class="subtitle">Typography.</span></h1>
-                <div class="columns">
+                <div class="columns h-margin-bottom-1">
                     <div class="column__third -padding-right-one-col">
                         <h6 class="heading -subtitle">Open Sans</h6>
-                        <h2 class="heading -weight-normal h-word-break-all h-no-padding-top">abcdefghijklmnopqrstuvxyz</h2>
-                        <h6 class="heading h-no-margin-bottom">Body copy</h6>
-                        <p class="text">Try-hard vinyl tumblr before they sold out master cleanse bespoke. Mustache heirloom hoodie disrupt fingerstache cornhole, raw denim small batch.</p>
+                        <h1 class="heading -font-demo">abcdefghijklmnopqrstuvxyz</h1>
                     </div>
                     <div class="column__third -padding-right-one-col -border-left">
                         <h6 class="heading -subtitle">Libre Baskerville</h6>
-                        <h2 class="heading -serif -weight-normal h-word-break-all h-no-padding-top">abcdefghijklmnopqrstuvxyz</h2>
-                        <h6 class="heading h-no-margin-bottom">Body copy</h6>
-                        <p class="text -weight-bold">Try-hard vinyl tumblr before they sold out master cleanse bespoke. Mustache heirloom hoodie disrupt fingerstache cornhole, raw denim small.</p>
+                        <h1 class="heading -serif -font-demo">abcdefghijklmnopqrstuvxyz</h1>
                     </div>
                     <div class="column__third -padding-right-one-col -border-left">
-                        <h6 class="heading -subtitle">Helvetica</h6>
-                        <h2 class="heading -weight-normal -style-italic h-word-break-all h-no-padding-top">abcdefghijklmnopqrstuvxyz</h2>
-                        <h6 class="heading h-no-margin-bottom">Body copy</h6>
-                        <p class="text -style-italic">Try-hard vinyl tumblr before they sold out master cleanse bespoke. Mustache heirloom hoodie disrupt fingerstache cornhole, raw denim small batch.</p>
+                        <h6 class="heading -subtitle">Dancing Script</h6>
+                        <h1 class="heading -cursive -font-demo">abcdefghijklmnopqrstuvxyz</h1>
                     </div>
                 </div>
-                <!--
-                <div class="content">
-                    <h1>H1 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h1>
-                    <h2>H2 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h2>
-                    <h3>H3 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h3>
-                    <h4>H4 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h4>
-                    <h5>H5 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h5>
-                    <h6>H6 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h6>
+                <div class="columns">
+                    <div class="column__third -padding-right-one-col">
+                        <p class="text">abcdefghijklmnopqrstuvwxyz<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>0123456789!@#$%^&*()[]{}:;.?</p>
+                    </div>
+                    <div class="column__third -padding-right-one-col -border-left">
+                        <p class="text -serif -weight-bold">abcdefghijklmnopqrstuvwxyz<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>0123456789!@#$%^&*()[]{}:;.?</p>
+                    </div>
+                    <div class="column__third -padding-right-one-col -border-left">
+                        <p class="text -cursive -style-italic">abcdefghijklmnopqrstuvwxyz<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>0123456789!@#$%^&*()[]{}:;.?</p>
+                    </div>
                 </div>
-                -->
+            </article>
+            <!-- End Section -->
+            
+            
+            <!-- Section -->
+            <article class="section -padding">
+                <h3 class="heading -subsection">Form elements</h3>
                 <div class="content">
-                    <!--
+                    <form class="form" post="#">
+                        
+                        <!-- Regular text input field -->
+                        <label class="form__label" for="my-input">Text input:</label>
+                        <input class="form__input" type="text" name="my-input" placeholder="Type something here...">
+                        
+                        <!-- Textarea field -->
+                        <label class="form__label" for="my-textarea">Textarea:</label>
+                        <textarea class="form__textarea" name="my-textarea" placeholder="Type something here..." rows="6"></textarea>
+                        
+                        <!-- Select drop-down menu -->
+                        <label class="form__label" for="my-select">Select:</label>
+                        <div class="form__select__wrapper">
+                            <select class="form__select" name="my-select" placeholder="Select an option &#8212;">
+                                <option selected disabled>Select an option &#8212;</option>
+                                <option>Option A</option>
+                                <option>Option B</option>
+                                <option>Option C</option>
+                                <option>Option D</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Inline radio buttons -->
+                        <label class="form__label" for="my-radios">Choose one of the available options:</label>
+                        <input class="form__radio" type="radio" name="my-radios" id="my-radios-a" value="Option A">
+                        <label class="form__label -for-radio -inline" for="my-radios-a">Option A</label>
+                        <input class="form__radio" type="radio" name="my-radios" id="my-radios-b" value="Option B">
+                        <label class="form__label -for-radio -inline" for="my-radios-b">Option B</label>
+                        <input class="form__radio" type="radio" name="my-radios" id="my-radios-c" value="Option C">
+                        <label class="form__label -for-radio -inline" for="my-radios-c">Option C</label>
+                        
+                        <!-- Radios on separate lines -->
+                        <label class="form__label" for="my-radios">Choose one of the available options:</label>
+                        <input class="form__radio -on-separate-line" type="radio" name="my-radios" id="my-radios-2-a" value="Option A">
+                        <label class="form__label -for-radio" for="my-radios-2-a">Option A</label>
+                        <input class="form__radio -on-separate-line" type="radio" name="my-radios" id="my-radios-2-b" value="Option B">
+                        <label class="form__label -for-radio" for="my-radios-2-b">Option B</label>
+                        <input class="form__radio -on-separate-line" type="radio" name="my-radios" id="my-radios-2-c" value="Option C">
+                        <label class="form__label -for-radio" for="my-radios-2-c">Option C</label>
+                        
+                        <button class="button form__button -submit" type="submit">Click me!</button>
+                    </form>
+                </div>
+            </article>
+            <!-- End Section -->
+            
+            
+            <!-- Section -->
+            <article class="section -padding">
+                <div class="content">
                     <h1>H1 &#8212; Heading.</h1>
                     <h2>H2 &#8212; Heading.</h2>
                     <h3>H3 &#8212; Heading.</h3>
@@ -121,8 +173,18 @@
                         <li class="list__item">This is the <strong>fifth</strong> list item;</li>
                     </ul>
                     <p class="text">Try-hard vinyl tumblr before they sold out master cleanse bespoke. Mustache heirloom hoodie disrupt fingerstache cornhole, raw denim small batch pabst. Drinking vinegar salvia you probably haven't heard of them, pop-up polaroid celiac everyday carry waistcoat chillwave blue bottle. Intelligentsia shoreditch hashtag swag 3 wolf moon deep v. Sriracha ethical pour-over kitsch listicle tacos. Art party affogato post-ironic flannel, beard viral offal microdosing freegan. Schlitz letterpress slow-carb kickstarter.</p>
-                    -->
                 </div> <!-- End content -->
+                
+                <!--
+                <div class="content">
+                    <h1>H1 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h1>
+                    <h2>H2 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h2>
+                    <h3>H3 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h3>
+                    <h4>H4 &#8212; Heading. The quick brown fox jumps over the lazy dog.</h4>
+                    <h5>H5 &#8212; Heading. The quick brown fox<br>jumps over the lazy dog.</h5>
+                    <h6>H6 &#8212; Heading. The quick brown fox<br>jumps over the lazy dog.</h6>
+                </div>
+                -->
             </article>
             <!-- End Section -->
             

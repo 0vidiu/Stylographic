@@ -8,20 +8,119 @@
  */
 .form {
     cf();
-
+    
+    margin: 0 0 rem($unit);
+    
     &__input,
     &__textarea,
     &__select {
-
+        transition-custom($property = border-color);
+        
+        box-sizing: content-box;
+        display: block;
+        width: 75%;
+        margin-bottom: rem($unit);
+        border: solid $color-form-border;
+        border-width: rem(2);
+        padding: rem($unit / 2 - 2);
+        color: $color-form-text;
+        line-height: $unit;
+        outline: 0;
+        
+        &:hover {
+            border-color: $color-form-border-hover;
+        }
+        
+        &:focus {
+            border-color: $color-form-border-focus;
+            color: $color-form-text-focus;
+        }
+        
         &::placeholder { }
-
+        
     }
+    
     &__input { }
-    &__textarea { }
-    &__select { }
+    &__textarea {}
+    
+    &__select__wrapper {
+        position: relative;
+        display: inline-block;
+        width: 75%;
+        margin-bottom: rem($unit);
+        
+        // drop-down arrow
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: rem(-6);
+            width: 0;
+            height: 0;
+            margin-top: rem(-3);
+            border-top: rem($unit/4) solid $color-form-border;
+            border-right: rem($unit/4) solid transparent;
+            border-left: rem($unit/4) solid transparent;
+            cursor: pointer;
+        }
+    }
+    
+    &__select {
+        position: relative;
+        appearance: none;
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    
+    &__radio {
+        appearance: none;
+        display: inline-block;
+        vertical-align: top;
+        width: rem($unit);
+        height: rem($unit);
+        margin: rem($unit / 2) 0 rem($unit + $unit / 2);
+        border-radius: rem($unit / 2);
+        background-color: $color-form-border;
+        line-height: rem($unit);
+        outline: 0;
+        
+        &.-on-separate-line {
+            float: left;
+            clear: left;
+        }
+        
+        &:checked {
+            background-color: $color-primary;
+        }
+    }
     
     &__checkbox { }
-    
     &__button { }
     &__notice { }
+    
+    &__label {
+        display: block;
+        padding: rem($unit / 2) 0;
+        font-size: $font-size-small;
+        
+        &.-for-radio {
+            display: inline-block;
+            padding-left: rem($unit / 2);
+            font-size: rem($body-copy-size);
+        }
+        
+        &.-inline {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: rem($unit);
+        }
+    }
+    
+    .-submit {
+        display: block;
+    }
+    
 }

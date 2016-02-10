@@ -22,6 +22,37 @@ px-to-procent($value, $max-value) {
     return $value*100/$max-value; // @stylint ignore
 }
 
+string($value) {
+    return "" + $value; // @stylint ignore
+}
+
+// Nearest multiple of x
+// Thanks to: https://stackoverflow.com/questions/14196987/java-round-to-nearest-multiple-of-5-either-up-or-down#answer-14197029
+near($value = 24, $multiplier = $unit, $direction = "up") {
+    $result = 0;
+    // This formula rounds to the nearest multiple (either up or down)
+    if ($direction == "none") {
+        $result = $multiplier * (round($value / $multiplier));
+    }
+    
+    if ($direction == "up") {
+        $result = $multiplier * (ceil(abs($value / $multiplier)));
+    }
+    
+    if ($direction == "down") {
+        $result = $multiplier * (floor(abs($value / $multiplier)));
+    }
+    
+    return $result;
+}
+
+// Output to pseudo-console
+console($value) {
+    body:before {
+        content: "Stylus> " + string($value);
+    }
+}
+
 /*
  * Font mixin
  */
