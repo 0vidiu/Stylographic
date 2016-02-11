@@ -17,6 +17,10 @@
     .content {
         float: left;
         width: unit($width-container/1.618, "px"); // temporary Golden Section calculation
+        
+        +below($medium) {
+            width: 100%;
+        }
     }
 
 // Links
