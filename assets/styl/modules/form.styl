@@ -43,6 +43,11 @@
     &__input { }
     &__textarea {}
     
+    &__field {
+        cf();
+        clear: both;
+    }
+    
     &__select__wrapper {
         position: relative;
         display: inline-block;
@@ -75,29 +80,65 @@
         cursor: pointer;
     }
     
+    &__checkbox,
     &__radio {
         appearance: none;
+        float: left;
         display: inline-block;
         vertical-align: top;
         width: rem($unit);
         height: rem($unit);
         margin: rem($unit / 2) 0 rem($unit + $unit / 2);
+        border: solid rem(2);
+        border-color: $color-form-border;
         border-radius: rem($unit / 2);
-        background-color: $color-form-border;
+        background-color: transparent;
         line-height: rem($unit);
         outline: 0;
+        cursor: pointer;
         
         &.-on-separate-line {
             float: left;
-            clear: left;
+            clear: both;
+            
+            &:checked + label {
+                float: left;
+            }
+            
         }
         
-        &:checked {
+        &:checked + label {
+            position: relative;
+            float: left;
+            display: inline-block;
+            margin: rem($unit / 2) 0 rem($unit + $unit / 2);
+        }
+        
+        &:checked + label span {
+            position: absolute;
+            top: rem($unit / 4);
+            left: rem(0 - $unit / 2 - $unit / 4);
+            display: block;
+            width: rem($unit / 2);
+            height: @width;
+            border-radius: rem($unit / 4);
             background-color: $color-primary;
+            cursor: pointer;
         }
     }
     
-    &__checkbox { }
+    &__checkbox {
+        border: solid rem(2);
+        border-color: $color-form-border;
+        border-radius: 0;
+        background-color: transparent;
+        
+        &:checked + label span {
+            border-radius: 0;
+        }
+        
+    }
+    
     &__button { }
     &__notice { }
     
@@ -106,13 +147,20 @@
         padding: rem($unit / 2) 0;
         font-size: $font-size-small;
         
-        &.-for-radio {
+        &.-for-radio,
+        &.-for-checkbox {
             display: inline-block;
             padding-left: rem($unit / 2);
             font-size: rem($body-copy-size);
         }
         
+        &.-on-separate-line {
+            float: left;
+            subtract-from-100($unit);
+        }
+        
         &.-inline {
+            float: left;
             display: inline-block;
             vertical-align: top;
             margin-right: rem($unit);
@@ -121,6 +169,7 @@
     
     .-submit {
         display: block;
+        clear: both;
     }
     
 }
