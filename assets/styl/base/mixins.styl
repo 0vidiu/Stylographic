@@ -22,8 +22,14 @@ px-to-procent($value, $max-value) {
     return $value*100/$max-value; // @stylint ignore
 }
 
+// convert value to string
 string($value) {
     return "" + $value; // @stylint ignore
+}
+
+// CSS calc() subtract value from 100% width
+subtract-from-100($value) {
+    width: "calc(100% - %s)" % rem($value);
 }
 
 // Nearest multiple of x
