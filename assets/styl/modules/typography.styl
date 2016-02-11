@@ -6,8 +6,9 @@
 // HTML
 html {
     font-size: $base-font-size-px;
-
+    text-rendering: optimizeLegibility;
 }
+
 // Body
 body {
     // Defaults
@@ -176,7 +177,6 @@ $h6 {
     
     &.-subsection {
         margin-bottom: rem($unit * 2);
-        color: $color-text-gray;
         font-family: $serif-font-family;
         font-style: italic;
         font-weight: normal;
@@ -227,6 +227,14 @@ $h6 {
     }
     
     /**
+     * Sizes
+     */
+    
+    &.-small {
+        font-size: $font-size-small;
+    }
+    
+    /**
      * Fontfaces
      */
     
@@ -238,6 +246,121 @@ $h6 {
         font-family: $cursive-font-family;
     }
     
+}
+
+/**
+ * Content elements
+ */
+
+.drop-cap {
+    position: relative;
+    top: rem($unit / 4);
+    float: left;
+    margin: 0 rem($unit / 2) 0 0;
+    color: $color-dropcap;
+    font-size: $font-size-headings[6];
+    line-height: rem($unit * 3);
+    
+    &.-serif {
+        font-family: $serif-font-family;
+    }
+    
+    &.-cursive {
+        font-family: $cursive-font-family;
+    }
+}
+
+// A "run-in" — first few words after the Drop Cap
+.run-in {
+    margin-left: rem(0 - $unit / 2);
+}
+
+.small-caps {
+    position: relative;
+    top: rem(-2);
+    vertical-align: top;
+    font-size: rem($font-size-headings[1]);
+    font-variant: small-caps;
+    font-feature-settings: "smcp" on;
+    
+    // fake small caps (if font doesn't have the characters)
+    &.-fake {
+        font-variant: normal;
+        font-size: 0.95rem;
+        font-weight: normal;
+        text-transform: uppercase;
+    }
+    
+    &.-serif {
+        top: rem(-1);
+        font-family: $serif-font-family;
+    }
+    
+    &.-cursive {
+        font-family: $cursive-font-family;
+    }
+}
+
+.blockquote {
+    @extends $h5;
+    
+    position: relative;
+    margin: rem($unit + $unit / 2);
+    font-family: $serif-font-family;
+    font-style: italic;
+    font-weight: normal;
+    
+    &.-border {
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: rem(0 - $unit - $unit / 2);
+            display: block;
+            width: rem($unit / 6);
+            height: 100%;
+            background-color: $color-border;
+        }
+    }
+    
+    .footer {
+        font-family: $default-font-family;
+        font-size: rem($body-copy-size);
+        font-style: normal;
+        line-height: rem($unit);
+    }
+    
+    .content {
+        margin-bottom: 0;
+        color: $color-quote-content;
+        text-indent: rem(0 - $unit / 3);
+    }
+    
+    .author {
+        display: inline-block;
+        margin: rem($unit / 2) 0;
+        color: $color-quote-author;
+        
+        .link {
+            color: inherit;
+        }
+    }
+    
+}
+
+.divider {
+    position: relative;
+    height: rem($unit);
+    
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: rem($unit / 3);
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: $color-border;
+    }
 }
 
 /**
