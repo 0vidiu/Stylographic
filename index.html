@@ -106,6 +106,27 @@
             
             <!-- Section -->
             <article class="section -padding">
+                <h6 class="heading -subtitle h-no-margin-bottom">Typography</h6>
+                <h3 class="heading -subsection">Content elements</h3>
+                <div class="content">
+                    <p class="text"><span class="drop-cap -serif">L</span><span class="run-in small-caps -serif">orem ipsum dolor</span>, before <a href="#" title="Anchor title">they sold out pickled</a> sartorial 3 wolf moon Helvetica. Four dollar toast bitters pitchfork tofu biodiesel selfies you probably haven't heard of <span class="small-caps">The Lord of the Rings</span>. Migas helvetica <span class="small-caps">pbr-b</span>, authentic 3 wolf moon typewriter street art marfa synth. Sustainable umami franzen, tumblr knausgaard whatever chia. Tousled paleo cred gochujang. Beard 90's wayfarers kogi <span class="small-caps">xoxo</span> man bun paleo, narwhal literally gastropub intelligentsia whatever. Everyday carry craft beer vegan williamsburg mixtape, hella iPhone <span class="small-caps">yolo</span> flexitarian stumptown chartreuse raw denim direct trade cliche listicle.</p>
+                    <blockquote class="blockquote -border">
+                        <p class="content">&ldquo;If you can't explain it simply, you don't understand it well enough.&rdquo;</p>
+                        <footer class="footer">
+                            <cite class="author">&#8212; <a class="link" href="https://en.wikipedia.org/wiki/Albert_Einstein" target="_blank">Albert Einstein</a>, Theoretical Physicist</cite>
+                        </footer>
+                    </blockquote>
+                    <p class="text">Fanny pack vegan venmo godard jean shorts. Fanny pack williamsburg distillery ramps mumblecore, chambray tote bag fixie green juice craft beer fashion axe locavore keffiyeh beard. Humblebrag etsy chia hashtag gochujang mixtape.</p>
+                    <p class="text">Synth disrupt retro pork belly, keytar next level asymmetrical shabby chic kitsch tumblr farm-to-table. Listicle retro gastropub kogi master cleanse, single-origin coffee poutine slow-carb helvetica hashtag blog pork belly everyday carry asymmetrical. You probably haven't heard of them DIY cliche pinterest distillery humblebrag readymade small batch, schlitz squid. Listicle VHS messenger bag, flexitarian semiotics drinking vinegar selfies kitsch tofu freegan narwhal. Fingerstache single-origin coffee lo-fi butcher. Scenester hella sustainable, celiac typewriter irony brunch lumbersexual. Authentic occupy forage fingerstache ramps tacos.</p>
+                    <div class="divider"></div>
+                    <p class="text -small"><strong><span class="h-case-uppercase">Uppercase text goes here.</span></strong> This is a very small text, used&#8212;maybe&#8212;as a caption or a footnote.</p>
+                </div>
+            </article>
+            <!-- End Section -->
+            
+            <!-- Section -->
+            <article class="section -padding">
+                <h6 class="heading -subtitle h-no-margin-bottom">Basic</h6>
                 <h3 class="heading -subsection">Form elements</h3>
                 <div class="content">
                     <form class="form" post="#">
@@ -131,24 +152,62 @@
                         </div>
                         
                         <!-- Inline radio buttons -->
-                        <label class="form__label" for="my-radios">Choose one of the available options:</label>
-                        <input class="form__radio" type="radio" name="my-radios" id="my-radios-a" value="Option A">
-                        <label class="form__label -for-radio -inline" for="my-radios-a">Option A</label>
-                        <input class="form__radio" type="radio" name="my-radios" id="my-radios-b" value="Option B">
-                        <label class="form__label -for-radio -inline" for="my-radios-b">Option B</label>
-                        <input class="form__radio" type="radio" name="my-radios" id="my-radios-c" value="Option C">
-                        <label class="form__label -for-radio -inline" for="my-radios-c">Option C</label>
+                        <div class="form__field">
+                            <label class="form__label" for="my-radios">Choose one of the available options:</label>
+                            <input class="form__radio" type="radio" name="my-radios" id="my-radios-a" value="Option A" checked>
+                            <label for="my-radios-a"><span></span></label>
+                            <label class="form__label -for-radio -inline" for="my-radios-a">Option A</label>
+                            <input class="form__radio" type="radio" name="my-radios" id="my-radios-b" value="Option B">
+                            <label for="my-radios-b"><span></span></label>
+                            <label class="form__label -for-radio -inline" for="my-radios-b">Option B</label>
+                            <input class="form__radio" type="radio" name="my-radios" id="my-radios-c" value="Option C">
+                            <label for="my-radios-c"><span></span></label>
+                            <label class="form__label -for-radio -inline" for="my-radios-c">Option C</label>
+                        </div>
                         
                         <!-- Radios on separate lines -->
-                        <label class="form__label" for="my-radios">Choose one of the available options:</label>
-                        <input class="form__radio -on-separate-line" type="radio" name="my-radios" id="my-radios-2-a" value="Option A">
-                        <label class="form__label -for-radio" for="my-radios-2-a">Option A</label>
-                        <input class="form__radio -on-separate-line" type="radio" name="my-radios" id="my-radios-2-b" value="Option B">
-                        <label class="form__label -for-radio" for="my-radios-2-b">Option B</label>
-                        <input class="form__radio -on-separate-line" type="radio" name="my-radios" id="my-radios-2-c" value="Option C">
-                        <label class="form__label -for-radio" for="my-radios-2-c">Option C</label>
+                        <div class="form__field">
+                            <label class="form__label" for="my-radios-2">Choose one of the available options:</label>
+                            <input class="form__radio -on-separate-line" type="radio" name="my-radios-2" id="my-radios-2-a" value="Option A" checked>
+                            <label for="my-radios-2-a"><span></span></label>
+                            <label class="form__label -for-radio -on-separate-line" for="my-radios-2-a">a) Option A</label>
+                            <input class="form__radio -on-separate-line" type="radio" name="my-radios-2" id="my-radios-2-b" value="Option B">
+                            <label for="my-radios-2-b"><span></span></label>
+                            <label class="form__label -for-radio -on-separate-line" for="my-radios-2-b">b) Organic chartreuse selvage, occupy butcher ethical locavore poutine fashion axe dreamcatcher mumblecore fixie.</label>
+                            <input class="form__radio -on-separate-line" type="radio" name="my-radios-2" id="my-radios-2-c" value="Option C">
+                            <label for="my-radios-3-c"><span></span></label>
+                            <label class="form__label -for-radio -on-separate-line" for="my-radios-2-c">c) Option C</label>
+                        </div>
                         
-                        <button class="button form__button -submit" type="submit">Click me!</button>
+                        <!-- Inline checkboxes -->
+                        <div class="form__field">
+                            <label class="form__label" for="my-radios">Choose one of the available options:</label>
+                            <input class="form__checkbox" type="checkbox" name="my-checkboxes" id="my-checkboxes-2-a" value="Option A" checked>
+                            <label for="my-checkboxes-2-a"><span></span></label>
+                            <label class="form__label -for-radio -inline" for="my-checkboxes-2-a">Option A</label>
+                            <input class="form__checkbox" type="checkbox" name="my-checkboxes" id="my-checkboxes-2-b" value="Option B">
+                            <label for="my-checkboxes-2-b"><span></span></label>
+                            <label class="form__label -for-radio -inline" for="my-checkboxes-2-b">Option B</label>
+                            <input class="form__checkbox" type="checkbox" name="my-checkboxes" id="my-checkboxes-2-c" value="Option C">
+                            <label for="my-checkboxes-2-c"><span></span></label>
+                            <label class="form__label -for-radio -inline" for="my-checkboxes-2-c">Option C</label>
+                        </div>
+                        
+                        <!-- Checkboxes on separate lines -->
+                        <div class="form__field">
+                            <label class="form__label" for="my-checkbox">Choose one of the available options:</label>
+                            <input class="form__checkbox -on-separate-line" type="checkbox" name="my-checkbox-a" id="my-checkbox-a" value="Option A" checked>
+                            <label for="my-checkbox-a"><span></span></label>
+                            <label class="form__label -for-checkbox -on-separate-line" for="my-checkbox-a">Listicle cray everyday carry tilde tattooed umami normcore. Biodiesel brooklyn forage portland, vegan meditation taxidermy godard. Organic chartreuse selvage, occupy butcher ethical locavore poutine fashion axe dreamcatcher mumblecore fixie.</label>
+                            <input class="form__checkbox -on-separate-line" type="checkbox" name="my-checkbox-b" id="my-checkbox-b" value="Option B">
+                            <label for="my-checkbox-b"><span></span></label>
+                            <label class="form__label -for-checkbox -on-separate-line" for="my-checkbox-b">b) Organic chartreuse selvage, occupy butcher ethical locavore poutine fashion axe dreamcatcher mumblecore fixie.</label>
+                            <input class="form__checkbox -on-separate-line" type="checkbox" name="my-checkbox-c" id="my-checkbox-c" value="Option C">
+                            <label for="my-checkbox-c"><span></span></label>
+                            <label class="form__label -for-checkbox -on-separate-line" for="my-checkbox-c">c) Option C</label>
+                        </div>
+                        
+                        <button class="button form__button -submit" type="submit">Submit</button>
                     </form>
                 </div>
             </article>
