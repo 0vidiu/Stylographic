@@ -12,7 +12,7 @@ $unit                  = unit(round($body-copy-size * $base-leading), "px");
 // Typographic scale ratio (e.g. "4/3" or "6/5")
 $scale-ratio           = (4/3);
 // Line-height increment for headings (h1 to h6)
-$scale-leading-ratio   = 0.35;
+$scale-leading-ratio   = 0.25;
 // Array for storing the headings' line-height
 $line-height-headings  = ();
 // Array for storing the headings' font-size
@@ -31,10 +31,10 @@ $log                   = "Output something here...";
 $temp-font-size        = $body-copy-size / $scale-ratio;
 $temp-line-height      = 1;
 
-// going through each heading size (1 to 6, plus an extra large size) and calculating:
+// going through each heading size (1 to 6, plus two extra large size) and calculating:
 // - font-size and line-height
 // - rhythm difference (if any it's added as a padding)
-for $n in (0..6) { // @stylint ignore
+for $n in (0..7) { // @stylint ignore
     // calculating the font-size in the $n iteration (h1 to h6)
     $temp-font-size = round($temp-font-size * $scale-ratio);
     
