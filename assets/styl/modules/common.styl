@@ -16,6 +16,10 @@ p {
     @extends .text;
 }
 
+a:not(.button) {
+    @extends .link;
+}
+
 ul {
     @extends .list;
 }
@@ -42,4 +46,8 @@ h5 {
 
 h6 {
     @extends $h6;
+}
+
+abbr {
+    @extends .small-caps;
 }
