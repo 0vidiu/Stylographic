@@ -3,72 +3,157 @@
 // Author: Graffino (http://www.graffino.com)
 //
 
-// HTML
+/**
+ * HTML
+ */
+
 html {
     font-size: $base-font-size-px;
     text-rendering: optimizeLegibility;
+    font-variant-ligatures: common-ligatures;
+    
+    background-color: $color-primary;
 }
 
-// Body
+
+/**
+ * Body
+ */
+
 body {
     // Defaults
     min-width: rem(320);
+    margin: rem($unit / 2);
     background-color: $color-background;
     color: $default-color;
     font-family: $sans-font-family;
-    font-size: $body-copy-size;
-    line-height: $unit;
+    font-size: rem($body-copy-size);
+    line-height: rem($unit);
 }
+
 
 /**
  * Headings
  */
+
 $h1, $h2, $h3, $h4, $h5, $h6 {
     display: block;
 }
+
 $h1 {
     margin: 0 0 rem($unit);
     padding: rem($rhythm-diff-headings[5]) 0 0;
     font-size: rem($font-size-headings[5]);
     line-height: rem($line-height-headings[5]);
+    
+    &.-vert-diff {
+        &-bottom {
+            padding: 0 0 rem($rhythm-diff-headings[5]);
+        }
+    }
 }
+
 $h2 {
     margin: 0 0 rem($unit);
     padding: rem($rhythm-diff-headings[4]) 0 0;
     font-size: rem($font-size-headings[4]);
     line-height: rem($line-height-headings[4]);
+    
+    &.-vert-diff {
+        &-bottom {
+            padding: 0 0 rem($rhythm-diff-headings[4]);
+        }
+    }
 }
+
 $h3 {
     margin: 0 0 rem($unit);
     padding: rem($rhythm-diff-headings[3]) 0 0;
     font-size: rem($font-size-headings[3]);
     line-height: rem($line-height-headings[3]);
+    
+    &.-vert-diff {
+        &-bottom {
+            padding: 0 0 rem($rhythm-diff-headings[3]);
+        }
+    }
 }
+
 $h4 {
     margin: 0 0 rem($unit);
     padding: rem($rhythm-diff-headings[2]) 0 0;
     font-size: rem($font-size-headings[2]);
     line-height: rem($line-height-headings[2]);
+    
+    &.-vert-diff {
+        &-bottom {
+            padding: 0 0 rem($rhythm-diff-headings[2]);
+        }
+    }
 }
+
 $h5 {
     margin: 0 0 rem($unit);
     padding: rem($rhythm-diff-headings[1]) 0 0;
     font-size: rem($font-size-headings[1]);
     line-height: rem($line-height-headings[1]);
+    
+    &.-vert-diff {
+        &-bottom {
+            padding: 0 0 rem($rhythm-diff-headings[1]);
+        }
+    }
 }
+
 $h6 {
     margin: 0 0 rem($unit);
     padding: rem($rhythm-diff-headings[0]) 0 0;
     font-size: rem($font-size-headings[0]);
     line-height: rem($line-height-headings[0]);
+    
+    &.-vert-diff {
+        &-bottom {
+            padding: 0 0 rem($rhythm-diff-headings[0]);
+        }
+    }
 }
 
 /**
  * Heading
  */
 .heading {
-    &.-color-white {
-        color: $color-white;
+    &.-xl {
+        padding: rem($rhythm-diff-headings[6]) 0 0;
+        font-size: rem($font-size-headings[6]);
+        line-height: rem($line-height-headings[6]);
+        
+        &.-vert-diff {
+            &-bottom {
+                padding: 0 0 rem($rhythm-diff-headings[0]);
+            }
+        }
+    }
+    
+    &.-xxl {
+        padding: rem($rhythm-diff-headings[7]) 0 0;
+        font-size: rem($font-size-headings[7]);
+        line-height: rem($line-height-headings[7]);
+        
+        &.-vert-diff {
+            &-bottom {
+                padding: 0 0 rem($rhythm-diff-headings[0]);
+            }
+        }
+    }
+    
+    &.-color {
+        &-white {
+            color: $color-white;
+        }
+        
+        &-gray {
+            color: $color-text-gray;
+        }
     }
     
     &.-no-margin {
@@ -132,13 +217,13 @@ $h6 {
     
     &.-page-title {
         position: relative;
-        margin-bottom: rem($unit * 4);
         color: $color-primary;
         
         // left decoration border
         &:before {
             content: "";
             position: absolute;
+            top: 18%;
             right: 105%;
             display: block;
             width: 100%;
@@ -172,21 +257,22 @@ $h6 {
         padding: 0;
         word-break: break-all;
         font-weight: normal;
-        line-height: rem(72);
+        line-height: rem($unit * 3);
     }
     
     &.-subsection {
         margin-bottom: rem($unit * 2);
         font-family: $serif-font-family;
-        font-style: italic;
+        //font-style: italic;
         font-weight: normal;
     }
     
     &.-subtitle {
         color: $color-text-gray;
+        font-size: $font-size-small;
         font-weight: bold;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
     }
     
 }
@@ -197,9 +283,15 @@ $h6 {
 .text {
     margin: 0 0 $unit;
     color: $color-text;
-
-    &.-color-white {
-        color: $color-white;
+    
+    &.-color {
+        &-white {
+            color: $color-white;
+        }
+        
+        &-gray {
+            color: $color-text-gray;
+        }
     }
     
     &.-style-italic {
@@ -249,31 +341,81 @@ $h6 {
 }
 
 /**
- * Content elements
+ * Links
+ */
+
+.link {
+    transition-custom($property = color);
+    
+    position: relative;
+    display: inline-block;
+    color: $color-link-default;
+    text-decoration: none;
+    
+    // custom underline
+    &:after {
+        transition-custom($property = width);
+        
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 0;
+        height: rem(2);
+        background-color: $color-link-hover;
+    }
+    
+    &:hover {
+        color: $color-link-hover;
+        
+        &:after {
+            width: 100%;
+        }
+    }
+    
+    
+}
+
+/**
+ * Drop cap
  */
 
 .drop-cap {
     position: relative;
-    top: rem($unit / 4);
     float: left;
-    margin: 0 rem($unit / 2) 0 0;
+    height: rem($unit * 3);
+    margin: 0 rem($unit / 2) 0 rem(0 - $unit / 4);
     color: $color-dropcap;
-    font-size: $font-size-headings[6];
+    font-size: rem($unit * 3.2);
     line-height: rem($unit * 3);
     
     &.-serif {
+        top: rem(0 - $unit / 8);
         font-family: $serif-font-family;
     }
     
     &.-cursive {
         font-family: $cursive-font-family;
     }
+    
+    &.-color {
+        &-white {
+            color: white;
+        }
+    }
+    
 }
 
-// A "run-in" — first few words after the Drop Cap
+/**
+ *  A "run-in" — first few words after the Drop Cap
+ */
 .run-in {
-    margin-left: rem(0 - $unit / 2);
+    margin-left: rem(0 - $unit * 0.3);
 }
+
+/**
+ * Small caps
+ */
 
 .small-caps {
     position: relative;
@@ -282,6 +424,7 @@ $h6 {
     font-size: rem($font-size-headings[1]);
     font-variant: small-caps;
     font-feature-settings: "smcp" on;
+    text-transform: lowercase;
     
     // fake small caps (if font doesn't have the characters)
     &.-fake {
@@ -292,7 +435,7 @@ $h6 {
     }
     
     &.-serif {
-        top: rem(-1);
+        top: rem(-3);
         font-family: $serif-font-family;
     }
     
@@ -300,6 +443,11 @@ $h6 {
         font-family: $cursive-font-family;
     }
 }
+
+
+/**
+ * Blockquote
+ */
 
 .blockquote {
     @extends $h5;
@@ -330,7 +478,7 @@ $h6 {
         line-height: rem($unit);
     }
     
-    .content {
+    .quote-content {
         margin-bottom: 0;
         color: $color-quote-content;
         text-indent: rem(0 - $unit / 3);
@@ -348,6 +496,11 @@ $h6 {
     
 }
 
+
+/**
+ * Divider
+ */
+
 .divider {
     position: relative;
     height: rem($unit);
@@ -361,11 +514,118 @@ $h6 {
         height: 1px;
         background-color: $color-border;
     }
+    
+    &.-margin {
+        &-top {
+            margin-top: rem($unit);
+        }
+    }
+    
+    &.-white {
+        &:before {
+            background-color: white;
+        }
+    }
+    
+    &.-opacity {
+        &-25 {
+            opacity: 0.25;
+        }
+        &-50 {
+            opacity: 0.5;
+        }
+    }
+    
 }
+
+
+/**
+ * Images
+ */
+
+.image {
+    display: block;
+    border-radius: rem($border-radius);
+}
+
+
+/**
+ * Caption / Image caption
+ */
+
+.caption {
+    @extends .text;
+    
+    display: block;
+    margin: 0 0 rem($unit);
+    padding: rem($unit / 2) 0;
+    font-size: $font-size-small;
+}
+
 
 /**
  * Lists
  */
 .list {
-    margin: 0 0 $unit;
+    margin: 0 0 rem($unit);
+    padding: 0 0 0 rem($unit);
+    
+    &.-extended {
+        .list__item {
+            padding: rem($unit / 2) 0;
+        }
+    }
+    
+    // nested lists
+    .list {
+        margin: 0;
+    }
+    
+    // types of lists
+    &.-custom-disk {
+        list-style: none;
+        
+        .list__item {
+            position: relative;
+            
+            &:before {
+                content: "";
+                position: absolute;
+                top: rem($unit / 3);
+                left: rem(0 - $unit);
+                display: block;
+                width: rem($unit / 4);
+                height: rem($unit / 4);
+                border: solid rem(2) $color-primary;
+                border-radius: rem($unit / 4);
+            }
+            
+            .list {
+                list-style: none;
+            }
+            
+        }
+        
+        &.-extended {
+            .list__item:before {
+                top: rem($unit / 3 + $unit / 2);
+            }
+        }
+    }
+    
+    &.-upper-roman {
+        list-style-type: upper-roman;
+        
+        .list {
+            list-style-type: inherit;
+        }
+    }
+    
+    &.-lower-alpha {
+        list-style-type: lower-alpha;
+        
+        .list {
+            list-style-type: inherit;
+        }
+    }
 }
