@@ -28,9 +28,14 @@ string($value) {
 }
 
 // CSS calc() subtract value from 100% width
-subtract-from-100($value) {
+width-from-100($value) {
     width: "calc(100% - %s)" % rem($value);
 }
+
+height-from-100($value) {
+    height: "calc(100% - %s)" % rem($value);
+}
+
 
 // Nearest multiple of x
 // Thanks to: https://stackoverflow.com/questions/14196987/java-round-to-nearest-multiple-of-5-either-up-or-down#answer-14197029
