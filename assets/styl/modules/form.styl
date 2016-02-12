@@ -22,6 +22,7 @@
         margin-bottom: rem($unit);
         border: solid $color-form-border;
         border-width: rem(2);
+        border-radius: rem($border-radius);
         padding: rem($unit / 2 - 2);
         color: $color-form-text;
         line-height: $unit;
@@ -75,13 +76,15 @@
         appearance: none;
         width: 100%;
         margin: 0;
-        border-radius: 0;
+        border-radius: rem($border-radius);
         background-color: transparent;
         cursor: pointer;
     }
     
     &__checkbox,
     &__radio {
+        transition-custom($property = border-color);
+        
         appearance: none;
         float: left;
         display: inline-block;
@@ -91,20 +94,14 @@
         margin: rem($unit / 2) 0 rem($unit + $unit / 2);
         border: solid rem(2);
         border-color: $color-form-border;
-        border-radius: rem($unit / 2);
+        border-radius: rem(50%);
         background-color: transparent;
         line-height: rem($unit);
         outline: 0;
         cursor: pointer;
         
-        &.-on-separate-line {
-            float: left;
-            clear: both;
-            
-            &:checked + label {
-                float: left;
-            }
-            
+        &:hover {
+            border-color: $color-form-border-hover;
         }
         
         &:checked + label {
@@ -121,20 +118,29 @@
             display: block;
             width: rem($unit / 2);
             height: @width;
-            border-radius: rem($unit / 4);
+            border-radius: rem(50%);
             background-color: $color-primary;
             cursor: pointer;
+        }
+        
+        &.-on-separate-line {
+            float: left;
+            clear: both;
+            
+            &:checked + label {
+                float: left;
+            }
         }
     }
     
     &__checkbox {
         border: solid rem(2);
         border-color: $color-form-border;
-        border-radius: 0;
+        border-radius: rem($border-radius);
         background-color: transparent;
         
         &:checked + label span {
-            border-radius: 0;
+            border-radius: rem($border-radius);
         }
         
     }
@@ -156,7 +162,7 @@
         
         &.-on-separate-line {
             float: left;
-            subtract-from-100($unit);
+            width-from-100($unit);
         }
         
         &.-inline {
