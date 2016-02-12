@@ -11,12 +11,34 @@
     center(rem($width-container));
     
     &.-padding {
-        padding: rem($unit * 3) 0;
+        &-2 {
+            padding: rem($unit * 2) 0;
+        }
+        
+        &-4 {
+            padding: rem($unit * 4) 0;
+        }
+        
+    }
+    
+    &.-full-width {
+        center(100%);
+    
+        .content {
+            center(rem($width-container));
+        }
+    }
+    
+    &.-full-height {
+        height: 100vh;
+    }
+    
+    &.-dark-background {
+        background-color: #031B21;
     }
     
     .content {
-        float: left;
-        width: unit($width-container/1.618, "px"); // temporary Golden Section calculation
+        //width: unit($width-container/1.618, "px"); // temporary Golden Section calculation
         
         +below($medium) {
             width: 100%;
