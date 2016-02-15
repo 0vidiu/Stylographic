@@ -12,6 +12,8 @@
 }
 
 .column {
+    
+    // Halfs
     &__half {
         col(1/2, gutter: px-to-procent($width-columns-gutter, $width-container), cycle: 2);
         
@@ -36,6 +38,7 @@
         }
     }
     
+    // Thirds
     &__third {
         col(1/3, gutter: px-to-procent($width-columns-gutter, $width-container), cycle: 3);
         
@@ -52,6 +55,15 @@
         }
     }
     
+    &__two-thirds {
+        col(2/3, gutter: px-to-procent($width-columns-gutter, $width-container));
+        
+        &.-no-gutter {
+            span(2/3);
+        }
+    }
+    
+    // Fourths
     &__fourth {
         col(1/4, gutter: px-to-procent($width-columns-gutter, $width-container), cycle: 4);
         
@@ -60,6 +72,15 @@
         }
     }
     
+    &__three-fourths {
+        col(3/4, gutter: px-to-procent($width-columns-gutter, $width-container));
+        
+        &.-no-gutter {
+            span(3/4);
+        }
+    }
+    
+    // Fifths
     &__fifth {
         col(1/5, gutter: px-to-procent($width-columns-gutter, $width-container), cycle: 5);
         
@@ -68,6 +89,7 @@
         }
     }
     
+    // Sixths
     &__sixth {
         col(1/6, gutter: px-to-procent($width-columns-gutter, $width-container), cycle: 6);
         
@@ -78,11 +100,23 @@
     
     &__half,
     &__third,
+    &__two-thirds,
     &__fourth,
+    &__three-fourths,
     &__fifth,
     &__sixth {
         +below($tablet) {
             margin-bottom: rem(20); // body copy line-height
+        }
+        
+        &.-padding-left {
+            &-one-col {
+                padding: 0 0 0 rem(74);
+                
+                +below($tablet) {
+                    padding: 0;
+                }
+            }
         }
         
         &.-padding-right {
