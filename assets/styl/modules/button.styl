@@ -15,8 +15,8 @@
     border: 0;
     border-radius: rem($border-radius);
     padding: 0 rem($unit * 2);
-    background-color: $color-primary;
-    color: white;
+    background-color: $color-button-background;
+    color: $color-button-text;
     font-weight: bold;
     line-height: rem($unit * 2);
     letter-spacing: 1px;
@@ -27,9 +27,11 @@
     vertical-align: top;
     
     &:hover {
-        background-color: darken($color-primary, 20%);
+        background-color: $color-button-background-hover;
+        color: $color-button-text-hover;
     }
     
+    // small
     &.-s {
         margin: 0 0 rem($unit * 1.5);
         padding: 0 rem($unit * 1.5);
@@ -37,6 +39,7 @@
         line-height: rem($unit * 1.5);
     }
     
+    // large
     &.-l {
         border-radius: rem($border-radius * 2);
         padding: 0 rem($unit * 2);
@@ -45,6 +48,7 @@
         letter-spacing: rem(2);
     }
     
+    // extra large
     &.-xl {
         border-radius: rem($border-radius * 3);
         padding: 0 rem($unit * 3);
@@ -53,13 +57,33 @@
         letter-spacing: rem(3);
     }
     
+    // rounded button
+    &.-rounded {
+        border-radius: rem($unit);
+        
+        // small
+        &.-s {
+            border-radius: rem($unit * 1.5 / 2);
+        }
+        
+        // large
+        &.-l {
+            border-radius: rem($unit * 3 / 2);
+        }
+        
+        // extra large
+        &.-xl {
+            border-radius: rem($unit * 2);
+        }
+    }
+    
     // border-only button
     &.-ghost {
         transition-custom($property = color);
         
         position: relative;
         background-color: transparent;
-        color: $color-primary;
+        color: $color-button-background;
         
         &:after {
             transition-custom($property = background-color);
@@ -72,7 +96,7 @@
             left: 0;
             z-index: -1;
             display: block;
-            border: solid rem(3) $color-primary;
+            border: solid rem(3) $color-button-border;
             border-radius: inherit;
         }
         
@@ -80,8 +104,8 @@
             color: $color-button-text;
             
             &:after {
-                border-color: $color-primary;
-                background-color: $color-primary;
+                border-color: $color-button-border;
+                background-color: $color-button-background;
             }
         }
     }
