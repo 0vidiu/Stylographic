@@ -12,7 +12,7 @@
 // Global
 var $html                      = $('html');
 var $window                    = $(window);
-var fontFaceObserverName       = 'Open Sans';
+var fontFaceObserverName       = 'Lato';
 
 // Scroll
 var scrollPoolingDelay         = 250;
