@@ -57,6 +57,37 @@ near($value = 24, $multiplier = $unit, $direction = "up") {
     return $result;
 }
 
+
+// Mixing that exports the heading's information (e.g. size, line-height, etc.)
+export-headings-info($size) {
+    .-fontface {
+        &:after {
+            content: string($heading-fontface);
+        }
+    }
+    .-font-size {
+        &:after {
+            content: string($font-size-headings[$size]);
+        }
+    }
+    .-leading {
+        &:after {
+            content: string($line-height-headings[$size]);
+        }
+    }
+    .-font-weight {
+        &:after {
+            content: string($font-weight-headings[$size]);
+        }
+    }
+    .-transform {
+        &:after {
+            content: string($transform-headings[$size]);
+        }
+    }
+}
+
+
 // Output to pseudo-console
 console($value) {
     body:before {
