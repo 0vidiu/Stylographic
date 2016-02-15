@@ -177,9 +177,9 @@
     &__message {
         display: block;
         margin: 0 0 rem($unit);
-        border: solid 1px $color-form-border;
-        border-radius: $border-radius;
-        padding: rem($unit / 2);
+        border: solid rem(2) $color-form-border;
+        border-radius: rem($border-radius);
+        padding: rem($unit / 2 - 2) rem($unit); // top, bottom: 1/2 unit - 2px border
         
         &.-info {
             border-color: darken($color-form-message-info, 3%);
