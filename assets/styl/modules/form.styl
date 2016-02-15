@@ -173,6 +173,52 @@
         }
     }
     
+    // Message boxes
+    &__message {
+        display: block;
+        margin: 0 0 rem($unit);
+        border: solid 1px $color-form-border;
+        border-radius: $border-radius;
+        padding: rem($unit / 2);
+        
+        &.-info {
+            border-color: darken($color-form-message-info, 3%);
+            background-color: $color-form-message-info;
+            
+            .bold {
+                color: darken($color-form-message-info, 80%);
+            }
+        }
+        
+        &.-warning {
+            border-color: darken($color-form-message-warning, 3%);
+            background-color: $color-form-message-warning;
+            
+            .bold {
+                color: darken($color-form-message-warning, 80%);
+            }
+        }
+        
+        &.-error {
+            border-color: darken($color-form-message-error, 3%);
+            background-color: $color-form-message-error;
+            
+            .bold {
+                color: darken($color-form-message-error, 80%);
+            }
+        }
+        
+        &.-success {
+            border-color: darken($color-form-message-success, 3%);
+            background-color: $color-form-message-success;
+            
+            .bold {
+                color: darken($color-form-message-success, 80%);
+            }
+        }
+    }
+    
+    // Submit button variation
     .-submit {
         display: block;
         clear: both;
