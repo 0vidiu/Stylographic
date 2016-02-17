@@ -12,7 +12,7 @@
 // Global
 var $html                      = $('html');
 var $window                    = $(window);
-var fontFaceObserverName       = 'Lato';
+var fontFaceObserverName       = 'Source Sans Pro';
 
 // Scroll
 var scrollPoolingDelay         = 250;
@@ -23,6 +23,9 @@ var $validate                  = $('.js-validate');
 
 // Placeholder
 var $placeHolder               = $('input, textarea');
+
+// Grid toggle element
+var $grid                      = $('.js-grid');
 
 /**
  * Init
@@ -59,6 +62,9 @@ var graffino = {
         // Placeholder
         // Plugin: https://github.com/mathiasbynens/jquery-placeholder
         graffino.placeholder();
+        
+        // Toggle grid
+        graffino.toggleGrid();
     },
 
     // Console handler
@@ -316,6 +322,80 @@ var graffino = {
 
         // Initialize module
         return __init();
+    },
+    
+    // Fit image to grid
+    imageToGrid: function () {
+        // Initialize function
+        function __init() {
+            var unit          = 24,
+                $testElement  = $('<p style="position:absolute; opacity: 0;">One line.</p>'),
+                images        = $('img'),
+                imageHeight   = 0,
+                optimalHeight = 0;
+            
+            // hack to get base document line-height
+            // append the test element to the body
+            $('body').append($testElement);
+            // store the element's height
+            unit = parseInt($testElement.css('height'));
+            // remove the test element
+            $testElement.remove();
+            
+            // loop which goes through all the images on the page
+            for (var i = 0; i < images.length; i++) {
+                // getting the image height
+                imageHeight   = parseInt($(images[i]).css('height'), 10);
+                // calculating the image's optimal height
+                optimalHeight = parseInt(Math.ceil(imageHeight / unit), 10) * unit;
+                // apply a margin only if there's a difference between the height and optimal height
+                if (imageHeight !== optimalHeight) {
+                    // adding the height difference to the image element as a margin
+                    $(images[i]).css('margin-bottom', optimalHeight - imageHeight);
+                } // end if
+            } // end for
+        }
+        
+        // Initialize module
+        return __init();
+    },
+    
+    // Toggle On/Off for grid guides
+    toggleGrid: function () {
+        // Initialize function
+        function __init() {
+            // check localStorage if element was left active last time
+            if ( typeof(Storage) !== 'undefined' ) {
+                // if yes turn the grid on
+                if (localStorage.isGridActive === 'true') {
+                    $grid.addClass('is-visible');
+                // if not then make sure it's off
+                } else {
+                    $grid.removeClass('is-visible');
+                }
+            } // end if
+
+            // Adding key press event for On/Off function
+            $(document).keydown(function (e) {
+                // If F2 key is pressed
+                if (e.which === 113) {
+                    // Hide/show the grid
+                    $grid.toggleClass('is-visible');
+                    // Store current state in LocalStorage
+                    if ( typeof(Storage) !== 'undefined' ) {
+                        if ($grid.hasClass('is-visible')) {
+                            localStorage.isGridActive = true;
+                        } else {
+                            localStorage.isGridActive = false;
+                        }
+                    }
+                    return false;
+            	} // end if
+            }); // end of keydown();
+        }
+        
+        // Initialize module
+        return __init();
     }
 };
 
@@ -331,5 +411,6 @@ jQuery(document).ready(function() {
  *  Document load (in process of loading)
  */
 jQuery(window).load(function() {
-    // Do stuff
+    // Fit images to grid
+    graffino.imageToGrid();
 });
