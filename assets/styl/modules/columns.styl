@@ -98,6 +98,16 @@
         }
     }
     
+    // Twelfths
+    &__twelfth {
+        col(1/12, gutter: px-to-procent($width-columns-gutter, $width-container), cycle: 12);
+        
+        &.-no-gutter {
+            span(1/12, cycle: 12);
+        }
+    }
+    
+    
     &__half,
     &__third,
     &__two-thirds,
@@ -136,7 +146,7 @@
                 content: "";
                 position: absolute;
                 top: 0;
-                left: rem(-($unit * 2));
+                left: rem(-($unit));
                 display: block;
                 width: 1px;
                 height: 100%;
