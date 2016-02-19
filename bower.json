@@ -1,0 +1,79 @@
+{
+  "name": "GulpFlow",
+  "version": "1.1.7",
+  "authors": [
+    "Graffino"
+  ],
+  "description": "Our gulp flow at Graffino.",
+  "main": "assets/css/main.styl",
+  "keywords": [],
+  "license": "MIT",
+  "homepage": "http://graffino.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~2.2.0",
+    "h5Validate": "~0.9.0",
+    "normalize.styl": "~3.0.3",
+    "jeet": "~6.1.2",
+    "rupture-by-jenius": "~0.6.1",
+    "browser-update": "~1.3.0",
+    "fontfaceobserver": "~1.6.3",
+    "srcset-poly": "*",
+    "slick.js": "~1.5.9",
+    "matchHeight": "~0.7.0",
+    "velocity": "~1.2.3",
+    "magnific-popup": "~1.0.1",
+    "pointer-events-poly": "*",
+    "BackstopJS": "backstopjs#~0.8.0",
+    "select2": "~4.0.1",
+    "jquery-placeholder": "~2.3.1"
+  },
+  "resolutions": {
+    "jquery": "~2.2.0"
+  },
+  "overrides": {
+    "pointer-events-poly": {
+      "main": "pointer_events_polyfill.js"
+    },
+    "srcset-poly": {
+      "main": "build/srcset.js"
+    },
+    "h5Validate": {
+      "main": "jquery.h5validate.js"
+    },
+    "slick.js": {
+      "main": [
+        "slick/slick.js",
+        "slick/slick.css"
+      ]
+    },
+    "fontfaceobserver": {
+      "main": "fontfaceobserver.js"
+    },
+    "jeet": {
+      "main": []
+    },
+    "rupture-by-jenius": {
+      "main": []
+    },
+    "normalize.styl": {
+      "main": []
+    },
+    "select2": {
+      "main": [
+        "dist/css/select2.css",
+        "dist/js/select2.js"
+      ]
+    },
+    "BackstopJS": {
+      "main": []
+    }
+  }
+}

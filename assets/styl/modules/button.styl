@@ -1,0 +1,121 @@
+//
+// Name: Button
+// Author: Graffino (http://www.graffino.com)
+//
+
+/**
+ * Standard button
+ */
+.button {
+    transition-custom($property = background-color);
+    
+    z-index: 20;
+    display: inline-block;
+    margin: 0 0 rem($unit);
+    border: 0;
+    border-radius: rem($border-radius);
+    padding: 0 rem($unit * 1.5);
+    background-color: $color-button-background;
+    color: $color-button-text;
+    font-weight: bold;
+    line-height: rem($unit * 2);
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    outline: 0;
+    
+    vertical-align: top;
+    
+    &:hover {
+        background-color: $color-button-background-hover;
+        color: $color-button-text-hover;
+    }
+    
+    // small
+    &.-s {
+        margin: 0 0 rem($unit * 1.4);
+        padding: 0 rem($unit * 1.5);
+        font-size: rem($font-size-small);
+        line-height: rem($unit * 1.6);
+    }
+    
+    // large
+    &.-l {
+        border-radius: rem($border-radius * 2);
+        padding: 0 rem($unit * 1.5);
+        font-size: $font-size-headings[1];
+        line-height: rem($unit * 3);
+        letter-spacing: rem(2);
+    }
+    
+    // extra large
+    &.-xl {
+        border-radius: rem($border-radius * 3);
+        padding: 0 rem($unit * 2);
+        font-size: $font-size-headings[2];
+        line-height: rem($unit * 4);
+        letter-spacing: rem(3);
+    }
+    
+    // rounded button
+    &.-rounded {
+        border-radius: rem($unit);
+        
+        // small
+        &.-s {
+            border-radius: rem($unit * 1.5 / 2);
+        }
+        
+        // large
+        &.-l {
+            border-radius: rem($unit * 3 / 2);
+        }
+        
+        // extra large
+        &.-xl {
+            border-radius: rem($unit * 2);
+        }
+    }
+    
+    // border-only button
+    &.-ghost {
+        transition-custom($property = color);
+        
+        position: relative;
+        background-color: transparent;
+        color: $color-button-background;
+        
+        &:after {
+            transition-custom($property = background-color);
+            width-from-100(6);
+            height-from-100(6);
+            
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            display: block;
+            border: solid rem(3) $color-button-border;
+            border-radius: inherit;
+        }
+        
+        &:hover {
+            color: $color-button-text;
+            
+            &:after {
+                border-color: $color-button-border;
+                background-color: $color-button-background;
+            }
+        }
+    }
+    
+    .icon {
+        // Enable click trough icons
+        pointer-events: none;
+    }
+}
+.button--default {
+    @extends .button;
+    
+}

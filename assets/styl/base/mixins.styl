@@ -1,0 +1,117 @@
+//
+// Name: Mixins
+// Author: Graffino (http://www.graffino.com)
+//
+
+/**
+ * Custom mixins
+ */
+
+// Convert to REM
+rem($value) {
+    return unit($value/$base-font-size-px, "rem"); // @stylint ignore
+}
+
+// Convert to EM
+em($value) {
+    return unit($value/$base-font-size-px, "em"); // @stylint ignore
+}
+
+// Px to Procent
+px-to-procent($value, $max-value) {
+    return $value*100/$max-value; // @stylint ignore
+}
+
+// convert value to string
+string($value) {
+    return "" + $value; // @stylint ignore
+}
+
+// CSS calc() subtract value from 100% width
+width-from-100($value) {
+    width: "calc(100% - %s)" % rem($value);
+}
+
+height-from-100($value) {
+    height: "calc(100% - %s)" % rem($value);
+}
+
+
+// Nearest multiple of x
+// Thanks to: https://stackoverflow.com/questions/14196987/java-round-to-nearest-multiple-of-5-either-up-or-down#answer-14197029
+near($value = 24, $multiplier = $unit, $direction = "up") {
+    $result = 0;
+    // This formula rounds to the nearest multiple (either up or down)
+    if ($direction == "none") {
+        $result = $multiplier * (round($value / $multiplier));
+    }
+    
+    if ($direction == "up") {
+        $result = $multiplier * (ceil(abs($value / $multiplier)));
+    }
+    
+    if ($direction == "down") {
+        $result = $multiplier * (floor(abs($value / $multiplier)));
+    }
+    
+    return $result;
+}
+
+
+// Mixing that exports the heading's information (e.g. size, line-height, etc.)
+export-headings-info($size) {
+    .-fontface {
+        &:after {
+            content: string($heading-fontface);
+        }
+    }
+    .-font-size {
+        &:after {
+            content: string($font-size-headings[$size]);
+        }
+    }
+    .-leading {
+        &:after {
+            content: string($line-height-headings[$size]);
+        }
+    }
+    .-font-weight {
+        &:after {
+            content: string($font-weight-headings[$size]);
+        }
+    }
+    .-transform {
+        &:after {
+            content: string($transform-headings[$size]);
+        }
+    }
+}
+
+
+// Output to pseudo-console
+console($value) {
+    body:before {
+        content: "Stylus> " + string($value);
+    }
+}
+
+/*
+ * Font mixin
+ */
+webfont($family, $file, $weight = normal, $style = normal) {
+    @font-face {
+        font-family: $family;
+        src: url("../fonts/" + $file + ".woff2") format("woff2"),
+            url("../fonts/" + $file + ".woff") format("woff"),
+            url("../fonts/" + $file + ".ttf") format("truetype"); // @stylint ignore
+            font-style: $style;
+        font-weight: $weight;
+    }
+}
+
+/**
+ * Animation mixin
+ */
+transition-custom($property = all, $duration = 250ms, $ease = cubic-bezier(0.250, 0.460, 0.450, 0.940)) { // @stylint ignore
+    transition: $property $duration $ease; // @stylint ignore
+}
