@@ -132,7 +132,14 @@
         padding: 0;
         clip: rect(0 0 0 0);
     }
-
+    
+    // Overflow hidden
+    &-overflow {
+        &-hidden {
+            overflow: hidden;
+        }
+    }
+    
     // Alignment
     &-align-left {
         text-align: left !important;
@@ -261,6 +268,10 @@
     
     // Opacity
     &-opacity {
+        &-20 {
+            opacity: 0.2;
+        }
+        
         &-40 {
             opacity: 0.4;
         }
