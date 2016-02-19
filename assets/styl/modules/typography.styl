@@ -189,6 +189,18 @@ $h6 {
         }
     }
     
+    &.-margin-bottom {
+        &-2 {
+            margin-bottom: rem($unit * 2);
+        }
+        &-3 {
+            margin-bottom: rem($unit * 3);
+        }
+        &-4 {
+            margin-bottom: rem($unit * 4);
+        }
+    }
+    
     &.-no-margin {
         margin: 0;
     }
@@ -250,6 +262,7 @@ $h6 {
     
     &.-page-title {
         position: relative;
+        margin-top: rem($unit * 2);
         color: $color-primary;
         
         // left decoration border
@@ -268,7 +281,7 @@ $h6 {
             display: inline-block;
             width: rem(1);
             height: rem($unit * 2);
-            margin: 0 rem($unit);
+            margin: 0 rem($unit / 4);
             background-color: $color-border;
         }
         
@@ -298,16 +311,33 @@ $h6 {
     &.-subsection {
         margin-bottom: rem($unit * 2);
         font-family: $serif-stack;
+        font-style: italic;
         font-weight: normal;
     }
     
     &.-subtitle {
         color: $color-text-gray;
-        font-weight: bold;
+        font-weight: normal;
         text-transform: uppercase;
         letter-spacing: 2px;
     }
     
+    &.-subheading {
+        font-family: $serif-stack;
+        font-style: italic;
+        font-weight: normal;
+        text-transform: none;
+    }
+    
+    // decorative heading
+    &.-to-background {
+        pointer-events: none;
+        position: absolute;
+        top: 20%;
+        color: lighten($color-background-dark, 0.5%);
+        font-size: rem($unit * 16);
+        line-height: rem($unit * 12);
+    }
 }
 
 /**
@@ -370,7 +400,6 @@ $h6 {
     &.-cursive {
         font-family: $cursive-stack;
     }
-    
 }
 
 /**
@@ -405,9 +434,8 @@ $h6 {
             width: 100%;
         }
     }
-    
-    
 }
+
 
 /**
  * Drop cap
@@ -419,11 +447,11 @@ $h6 {
     height: rem($unit * 3);
     margin: 0 rem($unit / 2) 0 rem(0 - $unit / 4);
     color: $color-dropcap;
-    font-size: rem($unit * 3.2);
+    font-size: rem($unit * 3.6);
     line-height: rem($unit * 3);
     
     &.-serif {
-        top: rem(0 - $unit / 8);
+        top: rem($unit / 8);
         font-family: $serif-stack;
     }
     
@@ -436,8 +464,8 @@ $h6 {
             color: white;
         }
     }
-    
 }
+
 
 /**
  *  A "run-in" — first few words after the Drop Cap
@@ -445,6 +473,7 @@ $h6 {
 .run-in {
     margin-left: rem(0 - $unit * 0.3);
 }
+
 
 /**
  * Small caps
@@ -468,7 +497,6 @@ $h6 {
     }
     
     &.-serif {
-        top: rem(-3);
         font-family: $serif-stack;
     }
     
@@ -520,13 +548,18 @@ $h6 {
         display: inline-block;
         margin: rem($unit / 2) 0;
         color: $color-quote-author;
+        font-family: $sans-stack;
         text-transform: normal;
+        font-style: normal;
         
         .link {
             color: inherit;
+            
+            &:hover {
+                color: $color-primary;
+            }
         }
     }
-    
 }
 
 
@@ -564,14 +597,16 @@ $h6 {
     }
     
     &.-opacity {
-        &-25 {
-            opacity: 0.25;
+        &-10 {
+            opacity: 0.1;
+        }
+        &-20 {
+            opacity: 0.2;
         }
         &-50 {
             opacity: 0.5;
         }
     }
-    
 }
 
 
@@ -666,6 +701,7 @@ $h6 {
     }
 }
 
+
 /**
  * Blog post demo
  */
@@ -674,13 +710,25 @@ $h6 {
     padding: rem($unit * 3) 0;
     
     .-post-meta {
-        margin: rem($unit) 0 0;
+        margin: 0;
+        padding-top: rem($unit + $rhythm-diff-headings[1]);
         color: $color-text-gray;
+        font-family: $serif-stack;
+        font-size: $font-size-headings[1];
+        font-style: italic;
         font-weight: normal;
-        text-transform: uppercase;
+        line-height: $line-height-headings[1];
         
         a {
             color: inherit;
+            
+            &:after {
+                display: none;
+            }
+            
+            &:hover {
+                color: $color-text;
+            }
         }
     }
     
@@ -690,163 +738,14 @@ $h6 {
         
         a {
             color: inherit;
-        }
-    }
-    
-    
-}
-
-/**
- * Styleguide — Headings meta data
- */
-
-.-demo-font-sans,
-.-demo-font-serif,
-.-demo-font-cursive {
-    &:after {
-        position: relative;
-        display: inline-block;
-    }
-}
-
-.-demo-font-sans {
-    &:after {
-        content: string($sans-fontface);
-    }
-}
-
-.-demo-font-serif {
-    &:after {
-        content: string($serif-fontface);
-    }
-}
-
-.-demo-font-cursive {
-    &:after {
-        content: string($cursive-fontface);
-    }
-}
-
-
-.headings-demo {
-    .heading-demo {
-        display: block;
-        width: 80%;
-        padding: inherit;
-        font-weight: 400;
-        text-transform: none;
-        letter-spacing: normal;
-        
-        &:after {
-            float: right;
-            display: inline-block;
-            padding-left: rem($unit / 4);
-            color: $color-text;
-            text-align: right;
-        }
-    }
-
-    .heading-example {
-        margin-top: rem($unit * 2);
-    }
-
-    .heading-type {
-        display: block;
-        margin-bottom: rem($unit);
-    }
-
-    // Exporting headings meta info (e.g. sizes, leading, weight, etc.)
-    .heading-demo-1-xxl {
-        margin: rem($unit) 0 rem($unit * 2);
-        export-headings-info(7);
-    }
-    .heading-demo-1-xl {
-        margin: rem($unit) 0 rem($unit * 2);
-        export-headings-info(6);
-    }
-    .heading-demo-1 {
-        margin: 0 0 rem($unit * 2);
-        export-headings-info(5);
-    }
-    .heading-demo-2 {
-        margin: 0 0 rem($unit * 2);
-        export-headings-info(4);
-    }
-    .heading-demo-3 {
-        margin: 0 0 rem($unit * 2);
-        export-headings-info(3);
-    }
-    .heading-demo-4 {
-        margin: 0 0 rem($unit * 2);
-        export-headings-info(2);
-    }
-    .heading-demo-5 {
-        margin: 0 0 rem($unit * 2);
-        export-headings-info(1);
-    }
-    .heading-demo-6 {
-        margin: 0 0 rem($unit * 2);
-        export-headings-info(0);
-    }
-}
-
-
-
-
-/**
- * Baseline grid overlay
- */
-
-html {
-    &:after {
-        content: string($unit);
-        display: none;
-    }
-}
-
-body {
-    position: relative;
-}
-
-.grid {
-    pointer-events: none;
-    display: none;
-    height: 100%;
-    
-    &.is-visible {
-        display: block;
-    }
-    
-    // baseline grid overlay
-    &__baseline {
-        pointer-events: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        width: 100%;
-        height: 100%;
-        background-image: linear-gradient(rgba($color-grid-baseline, 0.15) 1px, transparent 1px);
-        background-position: 0 -1px;
-        background-size: rem($unit) rem($unit);
-        background-repeat: repeat;
-    }
-    
-    // columns overlay
-    &__columns {
-        pointer-events: none;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        z-index: 900;
-        width: rem($width-container);
-        height: 100%;
-        margin-left: rem(-($width-container / 2));
-        
-        .column__twelfth {
-            pointer-events: none;
-            height: 100%;
-            box-shadow: 1px 0 0 rgba($color-grid-baseline, 0.15), -1px 0 0 rgba($color-grid-baseline, 0.15);
+            
+            &:after {
+                display: none;
+            }
+            
+            &:hover {
+                color: $color-primary;
+            }
         }
     }
 }
