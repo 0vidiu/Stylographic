@@ -11,6 +11,7 @@
 
 // Global
 var $html                      = $('html');
+var $body                      = $('body');
 var $window                    = $(window);
 var fontFaceObserverName       = 'Source Sans Pro';
 
@@ -373,6 +374,14 @@ var graffino = {
                 } else {
                     $grid.removeClass('is-visible');
                 }
+                
+                // if yes turn the console on
+                if (localStorage.isConsoleActive === 'true') {
+                    $body.addClass('-console');
+                // if not then make sure it's off
+                } else {
+                    $body.removeClass('-console');
+                }
             } // end if
 
             // Adding key press event for On/Off function
@@ -387,6 +396,21 @@ var graffino = {
                             localStorage.isGridActive = true;
                         } else {
                             localStorage.isGridActive = false;
+                        }
+                    }
+                    return false;
+            	} // end if
+                
+                // If F3 key is pressed
+                if (e.which === 114) {
+                    // Hide/show the grid
+                    $body.toggleClass('-console');
+                    // Store current state in LocalStorage
+                    if ( typeof(Storage) !== 'undefined' ) {
+                        if ($body.hasClass('-console')) {
+                            localStorage.isConsoleActive = true;
+                        } else {
+                            localStorage.isConsoleActive = false;
                         }
                     }
                     return false;
